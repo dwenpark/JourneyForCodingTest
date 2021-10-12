@@ -1,3 +1,4 @@
+# codeup 문제
 # https://codeup.kr/problem.php?id=2628
 
 a = list(map(int, input().split()))
