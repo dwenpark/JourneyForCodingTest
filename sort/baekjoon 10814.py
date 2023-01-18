@@ -5,10 +5,9 @@ dic = {}
 for _ in range(N):
 	age, name = sys.stdin.readline().split()
 	age = int(age)
-	try:
-		if dic[age]:
+	if dic.get(age, False):
 			dic[age].append(name)
-	except:
+	else:
 		dic[age] = [name]
 
 for key, value in sorted(dic.items()):
