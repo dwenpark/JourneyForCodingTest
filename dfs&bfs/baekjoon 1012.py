@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(10000)
 
 global graph, cnt
 
@@ -28,6 +29,10 @@ def dfs(x, y, m, n, graph):
 		return True
 	return False
 
+answer = []
 for _ in range(T):
 	tmp = list(map(int, sys.stdin.readline().split()))
-	print(baechu(tmp[0], tmp[1], tmp[2]))
+	answer.append(baechu(tmp[0], tmp[1], tmp[2]))
+
+for _ in answer:
+	print(_)
