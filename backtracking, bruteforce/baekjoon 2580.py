@@ -13,6 +13,7 @@ for i in range(9):
 			zero.append([i,j])
 		div[(i // 3) * 3 + (j // 3)].append(value)
 		
+print(div)
 while zero:
 	for i in zero:
 		a , b = i[0], i[1]
@@ -29,14 +30,11 @@ while zero:
 		else:
 			for k in div:
 				if k.count(0) == 1:
-					div[(b // 3) * 3 + (a // 3)][(a % 3) * 3 + (b % 3)] = 45 - sum(k)
+					div[(b // 3) * 3 + (a // 3)][(a % 3) * 3 + (b % 3)] = 45 - sum(div[(b // 3) * 3 + (a // 3)])
 					sdk[a][b] = div[(b // 3) * 3 + (a // 3)][(a % 3) * 3 + (b % 3)]
 					print(i, sdk[a][b], 3)
 					zero.remove(i)
-					break
-
-		
-		
+					break	
 
 for k in sdk:
 	print(*k)
