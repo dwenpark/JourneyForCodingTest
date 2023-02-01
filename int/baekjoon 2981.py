@@ -9,11 +9,9 @@ for _ in range(N):
 tmp = sorted(tmp)
 
 dict = {}
-for i in range(2, tmp[0]):
-	if tmp[0] % i:
-		dict[i] = tmp[0] % i
+for i in range(2, tmp[0]+1):
+	dict[i] = tmp[0] % i
 
-print(dict)
 for k in tmp[1::]:
 	lst = list(dict)
 	for j in lst:
