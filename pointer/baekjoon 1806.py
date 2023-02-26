@@ -2,20 +2,22 @@ import sys
 
 N, S = map(int, sys.stdin.readline().split())
 
-lst = list(map(int, sys.stdin.readline().split()))
+lst = list(map(int, sys.stdin.readline().split())) + [0, 0]
 
-answer = len(lst)
 start = 0
-end = 1
+end = 0
+answer = N
 
+total = lst[start]
 if sum(lst) < S:
 	print(0)
 else:
-	while (end <= len(lst) or answer == 1):
-		if sum(lst[start:end]) >= S:
-			start += 1
-			if answer > end - start:
-				answer = end - start + 1
-		elif sum(lst[start:end]) < S:
+	while end <= N:
+		if total < S:
 			end += 1
+			total += lst[end]
+		else:
+			answer = min(answer, end - start+1)
+			total -= lst[start]
+			start += 1
 	print(answer)
